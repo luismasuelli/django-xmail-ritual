@@ -65,6 +65,10 @@ class AsyncEmailEntry(models.Model):
     subject = models.TextField(null=True, verbose_name=_(u"Subject"),
                                help_text=_(u'Prefetched subject from the original message'))
 
+    class Meta:
+        verbose_name = _(u'Async e-mail entry')
+        verbose_name_plural = _(u'Async e-mail entries')
+
     def log_exception(self, e):
         """
         Guarda los detalles de la excepcion ocurrida.
