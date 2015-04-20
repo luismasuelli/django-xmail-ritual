@@ -37,7 +37,7 @@ class Command(BaseCommand):
                                "is expected.")
 
         if (job_interval < 10) and (job_count > 1):
-            raise CommandError("Bad configuration for -i/--xmail-job-interval option. It must be at least of 10"
+            raise CommandError("Bad configuration for -i/--xmail-job-interval option. It must be at least of 10 "
                                "seconds if the number if intervals is > 1.")
 
         def execute():
@@ -50,7 +50,8 @@ class Command(BaseCommand):
                 raise CommandError('An internal error has occurred when sending the e-mails chunk. See details:\n%s',
                                    traceback.format_exc())
             else:
-                self.stdout.write('In-chunk e-mails have been sent: %d out of %d (Check your administration for details)' % (
+                self.stdout.write('In-chunk e-mails have been sent: %d out of %d (Check your administration '
+                                  'for details)' % (
                     count, XMAIL_CHUNK_SIZE
                 ))
 

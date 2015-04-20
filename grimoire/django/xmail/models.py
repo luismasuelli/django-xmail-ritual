@@ -15,7 +15,7 @@ class AsyncEmailEntryQuerySet(models.QuerySet):
     def chunk(self, mark=False):
         queryset = self.exclude(state__in=['succeeded', 'busy']).order_by('tried_on', 'created_on')[0:XMAIL_CHUNK_SIZE]
         if mark:
-            self.filter(pk__in=queryset).update(state='busy')
+            self.filter(pk__in=queryset.values_list('pk', flat=True)).update(state='busy')
         return queryset
 
 
@@ -46,11 +46,11 @@ class AsyncEmailEntry(models.Model):
                                       help_text=_(u"Message creation date (i.e. when send_mail was called on it)"))
     tried_on = models.DateTimeField(default=None, null=True, verbose_name=_(u'Tried'),
                                     help_text=_(u'Last try date'))
-    content = models.TextField(null=False, verbose_name=_(u'Pickled email'),
+    content = models.TextField(null=False, verbose_name=_(u'Pickled e-mail'),
                                help_text=_(u"Pickled message being sent (it is a pickled EmailMessage instance "
                                            u'encoded in base 64)'))
     state = models.CharField(max_length=10, null=False, default='pending', choices=CHOICES,
-                             help_text=_(u'Current state of the message (pending, already sent, or failed)'),
+                             help_text=_(u'Current state of the message (pending, busy, already sent, or failed)'),
                              verbose_name=_(u'Message state'))
     last_error = models.TextField(null=True, editable=False, verbose_name=_(u"Last error"),
                                   help_text=_(u"Details for the last error occurred with this message"))

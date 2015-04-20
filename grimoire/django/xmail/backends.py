@@ -87,7 +87,7 @@ class AsyncEmailBackend(object):
                                        "SMTP backend provided by Django)")
 
         if issubclass(klass, cls):
-            raise ImproperlyConfigured("XMAIL_BRIDGED_BACKEND cannot be an asynchronous mail backend"
+            raise ImproperlyConfigured("XMAIL_BRIDGED_BACKEND cannot be an asynchronous mail backend "
                                        "(you used `%s`. Perhaps you wanted to set that value to "
                                        "EMAIL_BACKEND?)" % XMAIL_BRIDGED_BACKEND)
 

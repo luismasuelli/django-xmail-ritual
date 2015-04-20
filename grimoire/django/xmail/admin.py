@@ -8,12 +8,12 @@ class AsyncMailAdmin(ModelAdmin):
     No permite editar ni crear pero permite borrar. Muestra un subconjunto de los campos.
     """
 
-    list_display = ['created_on', 'tried_on', 'state', 'to', 'cc', 'bcc', 'subject']
+    list_display = ['created_on', 'tried_on', 'get_state', 'to', 'cc', 'bcc', 'subject']
     list_display_links = ['subject']
 
     def get_state(self, obj):
         return obj.get_state_display()
-    get_state.short_description = _(u'State')
+    get_state.short_description = _(u'Message state')
 
     def has_add_permission(self, request):
         return False

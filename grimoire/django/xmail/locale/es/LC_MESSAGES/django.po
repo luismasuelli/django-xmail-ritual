@@ -1,0 +1,71 @@
+msgid "Async e-mail entry"
+msgstr "Entrada de e-mail asíncrono"
+
+msgid "Async e-mail entries"
+msgstr "Entradas de e-mails asíncronos"
+
+msgid "Created"
+msgstr "Creado"
+
+msgid "Message creation date (i.e. when send_mail was called on it)"
+msgstr "Fecha de creación del mensaje (es decir, cuando send_mail fue invocado sobre él)"
+
+msgid "Tried"
+msgstr "Intentado"
+
+msgid "Last try date"
+msgstr "Última fecha de intento"
+
+msgid "Pickled e-mail"
+msgstr "E-mail serializado"
+
+msgid "Message state"
+msgstr "Estado del mensaje"
+
+msgid "Current state of the message (pending, busy, already sent, or failed)"
+msgstr "Estado actual del mensaje (pendiente, ocupado, ya enviado, o fallado)"
+
+msgid "Pickled message being sent (it is a pickled EmailMessage instance encoded in base 64)"
+msgstr "Serialización de mensaje siendo enviado (es un objeto EmailMessage serializado con `pickle`, y codificado en base 64)"
+
+msgid "Last error"
+msgstr "Último error"
+
+msgid "Details for the last error occurred with this message"
+msgstr "Detalles del último error ocurrido con este mensaje"
+
+msgid "To"
+msgstr "A"
+
+msgid "Prefetched destinations from the \"to\" field in the original message"
+msgstr "Destinos precargados para el campo \"a\" en el mensaje original"
+
+msgid "Cc"
+msgstr "Cc"
+
+msgid "Prefetched destinations from the \"cc\" field in the original message"
+msgstr "Destinos precargados para el campo \"cc\" en el mensaje original"
+
+msgid "Bcc"
+msgstr "Cco"
+
+msgid "Prefetched destinations from the \"bcc\" field in the original message"
+msgstr "Destinos precargados para el campo \"cco\" en el mensaje original"
+
+msgid "Subject"
+msgstr "Asunto"
+
+msgid "Prefetched subject from the original message"
+msgstr "Asunto precargado desde el mensaje original"
+
+msgid "Pending"
+msgstr "Pendiente"
+
+msgid "Busy"
+msgstr "Ocupado"
+
+msgid "Failed"
+msgstr "Fallado"
+
+msgid "Succeeded"
+msgstr "Éxito"
