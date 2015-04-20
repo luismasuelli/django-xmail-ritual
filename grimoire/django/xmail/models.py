@@ -15,7 +15,7 @@ class AsyncEmailEntryQuerySet(models.QuerySet):
     def chunk(self, mark=False):
         queryset = self.exclude(state__in=['succeeded', 'busy']).order_by('tried_on', 'created_on')[0:XMAIL_CHUNK_SIZE]
         if mark:
-            self.filter(pk__in=queryset.values_list('pk', flat=True)).update(state='busy')
+            self.filter(pk__in=list(queryset.values_list('pk', flat=True))).update(state='busy')
         return queryset
 
 
