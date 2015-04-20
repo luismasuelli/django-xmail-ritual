@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='django-xmail-ritual',
-    version='0.0.3',
+    version='0.0.4',
     namespace_packages=['grimoire', 'grimoire.django'],
     packages=find_packages(),
     url='https://github.com/luismasuelli/django-xmail-ritual',
