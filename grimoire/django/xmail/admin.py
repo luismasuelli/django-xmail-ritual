@@ -9,7 +9,7 @@ class AsyncMailAdmin(ModelAdmin):
     """
 
     list_display = ['created_on', 'tried_on', 'get_state', 'to', 'cc', 'bcc', 'subject', 'last_error']
-    list_display_links = []
+    list_display_links = None
 
     def get_state(self, obj):
         return obj.get_state_display()
