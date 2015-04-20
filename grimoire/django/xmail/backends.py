@@ -100,6 +100,7 @@ class AsyncEmailBackend(object):
         try:
             count = 0
             backend.open()
+            total = len(chunk)
             for entry in chunk:
                 with atomic():
                     # Que esto se nos ejecute dentro de una transaccion es buena idea ya que
@@ -124,6 +125,6 @@ class AsyncEmailBackend(object):
                         entry.failed()
                     entry.save()
             backend.close()
-            return count
+            return count, total
         except:
             raise

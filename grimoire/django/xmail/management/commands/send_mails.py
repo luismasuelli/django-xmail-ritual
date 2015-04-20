@@ -45,14 +45,14 @@ class Command(BaseCommand):
                 self.stdout.write('Sending a chunk of %d e-mails using backend `%s` ...' % (
                     XMAIL_CHUNK_SIZE, XMAIL_BRIDGED_BACKEND
                 ))
-                count = AsyncEmailBackend.chunk_send()
+                count, total = AsyncEmailBackend.chunk_send()
             except Exception as e:
                 raise CommandError('An internal error has occurred when sending the e-mails chunk. See details:\n%s',
                                    traceback.format_exc())
             else:
                 self.stdout.write('In-chunk e-mails have been sent: %d out of %d (Check your administration '
                                   'for details)' % (
-                    count, XMAIL_CHUNK_SIZE
+                    count, total
                 ))
 
         if job_count == 1:
