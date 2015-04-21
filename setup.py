@@ -2,9 +2,14 @@ from setuptools import setup, find_packages
 
 setup(
     name='django-xmail-ritual',
-    version='0.0.8',
+    version='0.0.9',
     namespace_packages=['grimoire', 'grimoire.django'],
     packages=find_packages(),
+    package_data={
+        'grimoire.django.xmail': [
+            'locale/*/LC_MESSAGES/*.*'
+        ]
+    },
     url='https://github.com/luismasuelli/django-xmail-ritual',
     license='LGPL',
     author='Luis y Anita',
