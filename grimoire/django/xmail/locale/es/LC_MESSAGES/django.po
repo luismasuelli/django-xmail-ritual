@@ -69,3 +69,6 @@ msgstr "Fallado"
 
 msgid "Succeeded"
 msgstr "Éxito"
+
+msgid "Asynchronous mailing"
+msgstr "Correo electrónico asíncrono"

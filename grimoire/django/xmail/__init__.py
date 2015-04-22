@@ -1,1 +1,1 @@
-
+default_app_config = 'grimoire.django.xmail.apps.DefaultAppConfig'
