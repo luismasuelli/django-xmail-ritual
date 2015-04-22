@@ -4,7 +4,7 @@ setup(
     name='django-xmail-ritual',
     version='0.0.10',
     namespace_packages=['grimoire', 'grimoire.django'],
-    packages=find_packages(),
+    packages=find_packages(exclude=['xmail_proj', 'xmail_proj.*']),
     package_data={
         'grimoire.django.xmail': [
             'locale/*/LC_MESSAGES/*.*'
