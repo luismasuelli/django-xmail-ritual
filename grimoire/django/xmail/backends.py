@@ -95,11 +95,11 @@ class AsyncEmailBackend(object):
         # configurar tranquilamente con un setting. De manera predeterminada, en cada vuelta se intentan enviar 20
         # correos.
         backend = klass(fail_silently=False)
-        chunk = AsyncEmailEntry.objects.chunk(mark=True)
 
         try:
             count = 0
             backend.open()
+            chunk = AsyncEmailEntry.objects.chunk(mark=True)
             total = len(chunk)
             for entry in chunk:
                 with atomic():
