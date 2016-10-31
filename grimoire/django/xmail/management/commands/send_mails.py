@@ -20,13 +20,13 @@ class Command(BaseCommand):
     just a granularity of ten (10) minutes, you should set such options as (10, 60), meaning "10 executions, with a
     distance of 60 seconds between each execution".
     """
-    option_list = BaseCommand.option_list + (
-        make_option('-c', '--xmail-job-count', action='store', dest='job_count', default=1,
-                    type='int', help='number of jobs to run in the same command. By default, 1. Must be >= 1.'),
-        make_option('-i', '--xmail-job-interval', action='store', dest='job_interval', default=0,
-                    type='int', help='delay (in seconds) between jobs. Must be >= 10 if number of jobs is > 0. '
-                                     'Defaults to 0. This value is ignored if the number of jobs is set to 1.')
-    )
+
+    def add_arguments(self, parser):
+        parser.add_argument('-c', '--xmail-job-count', action='store', dest='job_count', default=1, type=int,
+                            help='number of jobs to run in the same command. By default, 1. Must be >= 1.')
+        parser.add_argument('-i', '--xmail-job-interval', action='store', dest='job_count', default=0, type=int,
+                            help='delay (in seconds) between jobs. Must be >= 10 if number of jobs is > 0. '
+                                 'Defaults to 0. This value is ignored if the number of jobs is set to 1.')
 
     def handle(self, *args, **options):
         job_count = options.get('job_count', 1)
