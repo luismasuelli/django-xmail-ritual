@@ -2,7 +2,6 @@ from ...backends import AsyncEmailBackend
 from ...settings import XMAIL_CHUNK_SIZE, XMAIL_BRIDGED_BACKEND
 from django.core.management.base import BaseCommand, CommandError
 import traceback
-from optparse import make_option
 from threading import Thread
 from time import sleep
 
