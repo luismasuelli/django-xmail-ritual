@@ -1,5 +1,5 @@
 from django.db import models
-from base64 import encodestring, decodestring
+from base64 import encodebytes, decodebytes
 from pickle import loads, dumps
 from django.utils.timezone import now
 from django.utils.translation import ugettext_lazy as _
@@ -88,7 +88,7 @@ class AsyncEmailEntry(models.Model):
         try:
             content = self.content.encode('ascii') if isinstance(self.content, type(u'')) else self.content
             content = content or ''
-            return loads(decodestring(content))
+            return loads(decodebytes(content))
         except Exception as e:
             self.log_exception(e)
 
@@ -100,7 +100,7 @@ class AsyncEmailEntry(models.Model):
         :return:
         """
         try:
-            self.content = encodestring(dumps(value))
+            self.content = encodebytes(dumps(value)).decode('ascii')
             self.to = self._comma_break(value.to)
             self.cc = self._comma_break(value.cc)
             self.bcc = self._comma_break(value.bcc)

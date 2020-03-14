@@ -21,9 +21,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 SECRET_KEY = 'b)b_xfu4+@u5no3b-i&p10g!@n$x590k^jqx-)&4g=kj7c0de7'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 TEMPLATE_DEBUG = False
-
 
 # Application definition
 
@@ -46,6 +45,22 @@ MIDDLEWARE = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
+
 ROOT_URLCONF = 'xmail_proj.urls'
 
 WSGI_APPLICATION = 'xmail_proj.wsgi.application'
@@ -59,7 +74,7 @@ USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 
-EMAIL_BACKEND = 'grimoire.django.xmail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'grimoire.django.xmail.backends.AsyncEmailBackend'
 XMAIL_BRIDGED_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 DATABASES = {
