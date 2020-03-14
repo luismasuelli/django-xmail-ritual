@@ -1,4 +1,4 @@
-from setuptools import setup, find_packages
+from setuptools import setup
 
 setup(
     name='django-xmail-ritual',
@@ -18,7 +18,7 @@ setup(
     license='LGPL',
     author='Luis y Anita',
     author_email='luismasuelli@hotmail.com',
-    description='The xmail library is a mail dispatching library for Django 1.7. Mails are sent asynchronously by a '
+    description='The xmail library is a mail dispatching library for Django 2.2 or greater. Mails are sent asynchronously by a '
                 'management command',
     install_requires=['python-cantrips>=1.0.0', 'Django>=2.2']
 )
