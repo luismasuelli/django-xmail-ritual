@@ -37,12 +37,11 @@ INSTALLED_APPS = (
     'grimoire.django.xmail',
 )
 
-MIDDLEWARE_CLASSES = (
+MIDDLEWARE = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
@@ -50,19 +49,6 @@ MIDDLEWARE_CLASSES = (
 ROOT_URLCONF = 'xmail_proj.urls'
 
 WSGI_APPLICATION = 'xmail_proj.wsgi.application'
-
-# Database
-# https://docs.djangoproject.com/en/1.7/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'repuestazo',
-        'USER': 'repuestazo',
-        'PASSWORD': 'mysql:repuestazo$2014',
-        'HOST': 'localhost',
-    }
-}
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
@@ -73,17 +59,18 @@ USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.7/howto/static-files/
+EMAIL_BACKEND = 'grimoire.django.xmail.backends.console.EmailBackend'
+XMAIL_BRIDGED_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-STATIC_URL = 'http://static.repuestazo.com/repuestazo/'
-STATIC_ROOT = '/home/rleiva/webapps/static/repuestazo/'
-MEDIA_URL = 'http://media.repuestazo.com/repuestazo/'
-MEDIA_ROOT = '/home/rleiva/webapps/media/repuestazo/'
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
 
-# email
 
-try:
-    from local_settings import *
-except ImportError:
-    pass
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

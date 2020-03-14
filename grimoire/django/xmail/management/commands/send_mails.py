@@ -57,6 +57,6 @@ class Command(BaseCommand):
         if job_count == 1:
             execute()
         else:
-            for _ in xrange(job_count):
+            for _ in range(job_count):
                 Thread(target=execute).run()
                 sleep(job_interval)

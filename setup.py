@@ -2,9 +2,13 @@ from setuptools import setup, find_packages
 
 setup(
     name='django-xmail-ritual',
-    version='0.0.14',
-    namespace_packages=['grimoire', 'grimoire.django'],
-    packages=find_packages(exclude=['xmail_proj', 'xmail_proj.*']),
+    version='1.0.0',
+    packages=[
+        'grimoire.django.xmail',
+        'grimoire.django.xmail.management',
+        'grimoire.django.xmail.management.commands',
+        'grimoire.django.xmail.migrations',
+    ],
     package_data={
         'grimoire.django.xmail': [
             'locale/*/LC_MESSAGES/*.*'
@@ -16,5 +20,5 @@ setup(
     author_email='luismasuelli@hotmail.com',
     description='The xmail library is a mail dispatching library for Django 1.7. Mails are sent asynchronously by a '
                 'management command',
-    install_requires=['python-cantrips>=0.7.5', 'Django>=1.7']
+    install_requires=['python-cantrips>=1.0.0', 'Django>=2.2']
 )
