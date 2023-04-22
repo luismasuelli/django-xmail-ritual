@@ -2,7 +2,7 @@ from django.db import models
 from base64 import encodebytes, decodebytes
 from pickle import loads, dumps
 from django.utils.timezone import now
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 from .settings import XMAIL_CHUNK_SIZE
 
 
